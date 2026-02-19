@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RabatCare – Soins infirmiers, ambulance SMUR et kinésithérapie à domicile à Rabat. Service d'urgence 24h/24, intervention rapide 7j/7.">
+  <meta name="keywords" content="ambulance rabat, SMUR rabat, urgence médicale rabat, kiné domicile rabat, infirmier rabat, soins domicile rabat, réanimation rabat, transport médical maroc">
+  <meta name="author" content="RabatCare">
+  
+  <!-- Open Graph pour partage social -->
+  <meta property="og:title" content="RabatCare – Ambulance SMUR, Soins Infirmiers & Kiné Rabat">
+  <meta property="og:description" content="Service d'urgence 24h/24 : Ambulance SMUR, soins infirmiers et kinésithérapie à domicile. Intervention rapide à Rabat, Salé, Témara.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_MA">
+  
+  <title>RabatCare – Ambulance SMUR, Soins Infirmiers & Kiné Rabat | Urgence 24h/24</title>
+  
+  <style>
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Tajawal:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #1A3F5D;
+      --accent-color: #D4AF37;
+      --accent-hover: #B8941F;
+      --whatsapp-color: #25D366;
+      --emergency-color: #DC143C;
+      --emergency-hover: #B01030;
+      --success-color: #28a745;
+      --text-dark: #2c3e50;
+      --text-light: #6c757d;
+      --bg-light: #f5f5f5;
+      --white: #ffffff;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Barre d'urgence fixe en haut */
+    .emergency-bar {
+      background: var(--emergency-color);
+      color: white;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.9; }
+    }
+
+    .emergency-bar-content {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .emergency-bar-content .emergency-text {
+      font-weight: 700;
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .emergency-bar-content .emergency-text span {
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0.5; }
+    }
+
+    .emergency-btn {
+      padding: 12px 25px;
+      background: white;
+      color: var(--emergency-color);
+      border: none;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .emergency-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Bouton de retour en haut */
+    #back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--accent-color);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      z-index: 999;
+    }
+
+    #back-to-top:hover {
+      background: var(--accent-hover);
+      transform: translateY(-5px);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #2c5a7d 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    header p {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      opacity: 0.95;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .arabic-text {
+      font-family: 'Tajawal', sans-serif;
+      direction: rtl;
+      display: inline-block;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      animation: fadeIn 1s ease-out;
+      margin-top: 30px;
+    }
+
+    .cta-buttons a {
+      padding: 16px 35px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      font-size: 1.1em;
+    }
+
+    .call-btn { 
+      background: var(--accent-color);
+    }
+    
+    .whatsapp-btn { 
+      background: var(--whatsapp-color);
+    }
+
+    .cta-buttons a:hover { 
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Section Urgence spéciale */
+    .emergency-section {
+      background: linear-gradient(135deg, var(--emergency-color) 0%, #8B0000 100%);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .emergency-section::before {
+      content: '🚨';
+      position: absolute;
+      font-size: 20em;
+      opacity: 0.05;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .emergency-section h2 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      color: white;
+    }
+
+    .emergency-section h2::after {
+      background: white;
+    }
+
+    .emergency-services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .emergency-service-card {
+      background: white;
+      color: var(--text-dark);
+      padding: 35px 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+      border-top: 5px solid var(--emergency-color);
+    }
+
+    .emergency-service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+    }
+
+    .emergency-icon {
+      font-size: 4em;
+      margin-bottom: 20px;
+    }
+
+    .emergency-service-card h3 {
+      color: var(--emergency-color);
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      font-weight: 800;
+    }
+
+    .emergency-service-card ul {
+      text-align: left;
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .emergency-service-card ul li {
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .emergency-service-card ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--emergency-color);
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.5em;
+      color: var(--primary-color);
+      margin-bottom: 50px;
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    /* Services Grid */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+      margin-top: 50px;
+    }
+
+    .service {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--accent-color);
+    }
+
+    .service:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .service-icon {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .service h3 {
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      font-size: 1.4em;
+    }
+
+    .service p {
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* Why Us */
+    .why-us {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .why {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .why:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: white;
+      padding: 60px 20px;
+      margin: 40px 0;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .testimonial {
+      background: var(--bg-light);
+      padding: 30px;
+      border-radius: 10px;
+      border-left: 4px solid var(--accent-color);
+      position: relative;
+    }
+
+    .testimonial-quote {
+      font-size: 3em;
+      color: var(--accent-color);
+      opacity: 0.3;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: var(--text-light);
+      margin-bottom: 15px;
+      padding-top: 20px;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .testimonial-rating {
+      color: var(--accent-color);
+      margin-top: 10px;
+    }
+
+    /* Contact Form */
+    .contact-section {
+      background: var(--primary-color);
+      color: white;
+      border-radius: 15px;
+      padding: 60px 40px;
+      margin: 40px 0;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 40px auto 0;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      font-family: 'Montserrat', sans-serif;
+      transition: all 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: var(--accent-color);
+      color: white;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Contact Info */
+    .contact-info {
+      text-align: center;
+      background: white;
+      padding: 50px 30px;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info h2 {
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      display: inline-block;
+      margin: 15px 30px;
+      font-size: 1.2em;
+    }
+
+    .contact-item a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent-hover);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    footer p {
+      margin: 10px 0;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: var(--accent-hover);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInDown {
+      from { 
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to { 
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Badge "Urgence 24h" */
+    .badge-24h {
+      display: inline-block;
+      background: var(--emergency-color);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.9em;
+      font-weight: 700;
+      margin-left: 10px;
+      animation: pulse 2s infinite;
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .emergency-bar-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .emergency-bar-content .emergency-text {
+        justify-content: center;
+      }
+
+      header h1 { 
+        font-size: 2.2em; 
+      }
+      
+      header p { 
+        font-size: 1.1em; 
+      }
+      
+      .cta-buttons { 
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-buttons a {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      section {
+        padding: 50px 15px;
+      }
+      
+      section h2 {
+        font-size: 2em;
+      }
+
+      .emergency-section h2 {
+        font-size: 2.2em;
+      }
+      
+      .contact-section {
+        padding: 40px 20px;
+      }
+      
+      .contact-item {
+        display: block;
+        margin: 15px 0;
+      }
+      
+      #back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    @media(max-width: 480px) {
+      header h1 { 
+        font-size: 1.8em; 
+      }
+      
+      section h2 {
+        font-size: 1.6em;
+      }
+
+      .emergency-section h2 {
+        font-size: 1.8em;
+      }
+      
+      .service h3 {
+        font-size: 1.2em;
+      }
+
+      .emergency-bar {
+        padding: 10px 15px;
+      }
+
+      .emergency-bar-content .emergency-text {
+        font-size: 1em;
+      }
+    }
+
+    /* Message de confirmation */
+    .success-message {
+      display: none;
+      background: var(--success-color);
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .success-message.show {
+      display: block;
+      animation: fadeIn 0.5s ease-out;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Barre d'urgence fixe -->
+<div class="emergency-bar">
+  <div class="emergency-bar-content">
+    <div class="emergency-text">
+      <span>🚨</span>
+      <span>URGENCE MÉDICALE 24h/24</span>
+      <span class="arabic-text">حالة طوارئ طبية</span>
+    </div>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <a href="tel:+212666500670" class="emergency-btn">☎️ 0666 50 06 70</a>
+      <a href="tel:+212708210012" class="emergency-btn">☎️ 0708 21 00 12</a>
+    </div>
+  </div>
+</div>
+
+<!-- Bouton retour en haut -->
+<button id="back-to-top" aria-label="Retour en haut" title="Retour en haut">↑</button>
+
+<header>
+  <h1>RabatCare <span class="badge-24h">URGENCE 24h</span></h1>
+  <p>Soins infirmiers, Ambulance SMUR & Kinésithérapie à domicile</p>
+  <p class="arabic-text">خدمات التمريض، الإسعاف الطبي والعلاج الطبيعي بالرباط</p>
+  <p style="font-size:1.1em; margin-top:10px;">Intervention rapide 7j/7 - Service d'urgence complet</p>
+  <div class="cta-buttons">
+    <a href="tel:+212666500670" class="call-btn" aria-label="Appeler RabatCare">📞 Appeler maintenant</a>
+    <a href="https://wa.me/212666500670" class="whatsapp-btn" aria-label="Contacter via WhatsApp" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+</header>
+
+<!-- Section Urgence -->
+<section id="emergency" class="emergency-section">
+  <h2>🚨 Services d'Urgence <span class="arabic-text">/ خدمات الطوارئ</span></h2>
+  <p style="font-size:1.3em; margin-bottom:30px; max-width:800px; margin-left:auto; margin-right:auto;">
+    Équipe médicale d'urgence disponible 24h/24 et 7j/7 pour toute intervention rapide à Rabat, Salé et Témara
+  </p>
+  
+  <div class="emergency-services-grid">
+    <div class="emergency-service-card">
+      <div class="emergency-icon">🚑</div>
+      <h3>Ambulance Médicalisée SMUR</h3>
+      <p class="arabic-text" style="color: var(--text-light); margin-bottom:15px;">سيارة إسعاف طبية</p>
+      <p>Transport d'urgence avec équipement de réanimation complet</p>
+      <ul>
+        <li>Ambulance équipée dernière génération</li>
+        <li>Équipe paramédicale qualifiée (infirmier anesthésiste)</li>
+        <li>Défibrillateur automatique</li>
+        <li>Monitoring cardiaque continu</li>
+        <li>Oxygénothérapie et ventilation</li>
+        <li>Matériel d'intubation et perfusion</li>
+      </ul>
+    </div>
+
+    <div class="emergency-service-card">
+      <div class="emergency-icon">💓</div>
+      <h3>Équipe de Réanimation Mobile</h3>
+      <p class="arabic-text" style="color: var(--text-light); margin-bottom:15px;">فريق إنعاش متنقل</p>
+      <p>Intervention rapide pour urgences vitales</p>
+      <ul>
+        <li>Réanimation cardio-pulmonaire</li>
+        <li>Gestion arrêt cardio-respiratoire</li>
+        <li>Stabilisation patient critique</li>
+        <li>Médications d'urgence</li>
+        <li>Massage cardiaque externe</li>
+        <li>Support vital avancé</li>
+      </ul>
+    </div>
+
+    <div class="emergency-service-card">
+      <div class="emergency-icon">🏥</div>
+      <h3>Transport Médical Inter-Hospitalier</h3>
+      <p class="arabic-text" style="color: var(--text-light); margin-bottom:15px;">النقل الطبي بين المستشفيات</p>
+      <p>Transfert sécurisé entre établissements de santé</p>
+      <ul>
+        <li>Transferts programmés et d'urgence</li>
+        <li>Surveillance médicale continue</li>
+        <li>Coordination avec médecins</li>
+        <li>Transport longue distance</li>
+        <li>Rapatriement sanitaire</li>
+        <li>Documentation médicale complète</li>
+      </ul>
+    </div>
+
+    <div class="emergency-service-card">
+      <div class="emergency-icon">⚕️</div>
+      <h3>Médecin Régulateur 24h/24</h3>
+      <p class="arabic-text" style="color: var(--text-light); margin-bottom:15px;">طبيب منظم على مدار الساعة</p>
+      <p>Coordination médicale et orientation des urgences</p>
+      <ul>
+        <li>Évaluation téléphonique immédiate</li>
+        <li>Conseil médical d'urgence</li>
+        <li>Orientation vers service adapté</li>
+        <li>Décision d'intervention</li>
+        <li>Coordination avec hôpitaux</li>
+        <li>Suivi post-intervention</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:50px;">
+    <a href="tel:+212666500670" class="emergency-btn" style="font-size:1.3em; padding:18px 40px;">
+      🚨 APPELER L'AMBULANCE MAINTENANT
+    </a>
+  </div>
+</section>
+
+<section id="services">
+  <h2>Nos Services de Soins <span class="arabic-text">/ خدمات الرعاية</span></h2>
+  <div class="services">
+    <div class="service">
+      <div class="service-icon">🏥</div>
+      <h3>Hospitalisation à Domicile</h3>
+      <p class="arabic-text">الاستشفاء في المنزل</p>
+      <p>Surveillance médicale complète, perfusions, injections, coordination avec le médecin traitant.</p>
+    </div>
+    
+    <div class="service">
+      <div class="service-icon">🩹</div>
+      <h3>Soins des Escarres et Plaies</h3>
+      <p class="arabic-text">العناية بالجروح والتقرحات</p>
+      <p>Évaluation professionnelle, pansements avancés, prévention et suivi cicatriciel spécialisé.</p>
+    </div>
+    
+    <div class="service">
+      <div class="service-icon">💉</div>
+      <h3>Soins Infirmiers Techniques</h3>
+      <p class="arabic-text">الخدمات التمريضية التقنية</p>
+      <p>Injections IM/IV/SC, soins post-opératoires, ablation de fils et suivi patients chroniques.</p>
+    </div>
+    
+    <div class="service">
+      <div class="service-icon">👨‍⚕️</div>
+      <h3>Infirmiers en Pratique Avancée (IPA)</h3>
+      <p class="arabic-text">ممرضون ذوو ممارسة متقدمة</p>
+      <p>Évaluation clinique approfondie, suivi personnalisé, éducation thérapeutique et coordination médicale.</p>
+    </div>
+    
+    <div class="service">
+      <div class="service-icon">🩺</div>
+      <h3>Prélèvements & Analyses</h3>
+      <p class="arabic-text">أخذ العينات والتحاليل</p>
+      <p>Prélèvements sanguins à domicile, collecte d'échantillons, coordination avec laboratoires partenaires.</p>
+    </div>
+    
+    <div class="service">
+      <div class="service-icon">👵</div>
+      <h3>Soins Gériatriques</h3>
+      <p class="arabic-text">رعاية كبار السن</p>
+      <p>Accompagnement des personnes âgées, soins adaptés, prévention des complications liées à l'âge.</p>
+    </div>
+
+    <div class="service">
+      <div class="service-icon">🏃</div>
+      <h3>Kinésithérapie à Domicile</h3>
+      <p class="arabic-text">العلاج الطبيعي في المنزل</p>
+      <p>Rééducation fonctionnelle, thérapie manuelle, exercices personnalisés, récupération post-traumatique et post-opératoire.</p>
+    </div>
+
+    <div class="service">
+      <div class="service-icon">🤰</div>
+      <h3>Soins Maternité & Post-Partum</h3>
+      <p class="arabic-text">رعاية الأمومة وما بعد الولادة</p>
+      <p>Suivi post-accouchement, soins du nouveau-né, allaitement, surveillance mère et bébé.</p>
+    </div>
+
+    <div class="service">
+      <div class="service-icon">🩸</div>
+      <h3>Suivi Diabète</h3>
+      <p class="arabic-text">متابعة مرض السكري</p>
+      <p>Contrôle glycémie, administration insuline, éducation diététique, prévention complications diabétiques.</p>
+    </div>
+  </div>
+</section>
+
+<section id="why-us">
+  <h2>Pourquoi Choisir RabatCare? <span class="arabic-text">/ علاش RabatCare؟</span></h2>
+  <div class="why-us">
+    <div class="why">🚑 Ambulance SMUR équipée</div>
+    <div class="why">⚡ Intervention d'urgence immédiate</div>
+    <div class="why">👨‍⚕️ Équipe médicale hautement qualifiée</div>
+    <div class="why">🏃 Kinésithérapeutes diplômés</div>
+    <div class="why">✅ Infirmiers diplômés et expérimentés</div>
+    <div class="why">🕐 Disponibilité 24h/24 - 7j/7</div>
+    <div class="why">❤️ Accompagnement humain personnalisé</div>
+    <div class="why">🔒 Matériel médical certifié et stérilisé</div>
+    <div class="why">💰 Tarifs transparents et compétitifs</div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="testimonials">
+    <h2>Témoignages de nos Patients <span class="arabic-text">/ شهادات مرضانا</span></h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Mon père a eu un malaise cardiaque à 3h du matin. J'ai appelé et l'ambulance était là en 15 minutes avec tout l'équipement. Ils l'ont stabilisé avant le transport à l'hôpital. Je ne sais pas ce qui se serait passé sans eux.</p>
+        <p class="testimonial-author">- Y.B., Agdal</p>
+        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Après ma chirurgie du genou, le kiné vient 3 fois par semaine. Au début j'avais du mal à marcher, maintenant ça va beaucoup mieux. Il prend le temps d'expliquer chaque exercice et c'est vraiment pratique de ne pas avoir à me déplacer.</p>
+        <p class="testimonial-author">- N.M., Hay Riad</p>
+        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Ma mère est âgée et a besoin de soins quotidiens. L'infirmière arrive toujours à l'heure, elle est douce avec elle et prend le temps. C'est rassurant d'avoir quelqu'un de fiable.</p>
+        <p class="testimonial-author">- F.Z., Hassan</p>
+        <div class="testimonial-rating">⭐⭐⭐⭐</div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Transfert de ma femme entre deux cliniques. Le personnel médical était compétent, surveillance constante pendant le trajet. Arrivée en toute sécurité. Prix correct pour ce type de service.</p>
+        <p class="testimonial-author">- M.L., Salé</p>
+        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Pansements post-opératoires pendant 2 semaines. L'infirmier était ponctuel et professionnel. Petite attente une fois mais il m'a prévenu par téléphone. Dans l'ensemble très satisfait du service.</p>
+        <p class="testimonial-author">- K.H., Témara</p>
+        <div class="testimonial-rating">⭐⭐⭐⭐</div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">J'ai appelé un dimanche pour ma fille qui avait de la fièvre et besoin d'une injection. Quelqu'un est venu en 1h. Efficace et rassurant, surtout quand on a un enfant malade.</p>
+        <p class="testimonial-author">- S.K., Rabat</p>
+        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-section">
+    <h2>Demande de Rendez-vous <span class="arabic-text">/ طلب موعد</span></h2>
+    <p style="text-align:center; font-size:1.1em; margin-bottom:20px;">Remplissez le formulaire ci-dessous, nous vous recontacterons rapidement.</p>
+    
+    <form class="contact-form" id="contactForm">
+      <div class="form-group">
+        <label for="name">Nom complet <span class="arabic-text">/ الاسم الكامل</span> *</label>
+        <input type="text" id="name" name="name" required placeholder="Votre nom">
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Téléphone <span class="arabic-text">/ الهاتف</span> *</label>
+        <input type="tel" id="phone" name="phone" required placeholder="+212 6XX XXX XXX">
+      </div>
+      
+      <div class="form-group">
+        <label for="service">Service demandé <span class="arabic-text">/ الخدمة المطلوبة</span> *</label>
+        <select id="service" name="service" required>
+          <option value="">-- Sélectionnez un service --</option>
+          <option value="ambulance">🚑 Ambulance SMUR (Urgence)</option>
+          <option value="hospitalisation">Hospitalisation à domicile</option>
+          <option value="kinesitherapie">Kinésithérapie à domicile</option>
+          <option value="plaies">Soins des escarres et plaies</option>
+          <option value="techniques">Soins infirmiers techniques</option>
+          <option value="ipa">Infirmier en pratique avancée</option>
+          <option value="prelevements">Prélèvements & Analyses</option>
+          <option value="geriatrie">Soins gériatriques</option>
+          <option value="maternite">Soins maternité</option>
+          <option value="diabete">Suivi diabète</option>
+          <option value="autre">Autre</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Message <span class="arabic-text">/ الرسالة</span></label>
+        <textarea id="message" name="message" placeholder="Décrivez brièvement votre besoin..."></textarea>
+      </div>
+      
+      <button type="submit" class="submit-btn">Envoyer la demande</button>
+      
+      <div class="success-message" id="successMessage">
+        ✅ Votre demande a été envoyée avec succès ! Nous vous contacterons rapidement.
+      </div>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div class="contact-info">
+    <h2>Zone d'Intervention <span class="arabic-text">/ منطقة الخدمة</span></h2>
+    <p style="font-size:1.2em; margin-bottom:30px;">Rabat – Salé – Témara</p>
+    
+    <div class="contact-item">
+      <span>📞 Urgence 24h/24 :</span><br>
+      <a href="tel:+212666500670">0666 50 06 70</a>
+    </div>
+    
+    <div class="contact-item">
+      <span>📞 Ligne alternative :</span><br>
+      <a href="tel:+212708210012">0708 21 00 12</a>
+    </div>
+    
+    <div class="contact-item">
+      <span>💬 WhatsApp :</span><br>
+      <a href="https://wa.me/212666500670" target="_blank" rel="noopener">0666 50 06 70</a>
+    </div>
+    
+    <div class="contact-item">
+      <span>📧 Email :</span><br>
+      <a href="/cdn-cgi/l/email-protection#9ddfeff2e8f6b3f2e9f5f0fcf3f8aaddfaf0fcf4f1b3fef2f0"><span class="__cf_email__" data-cfemail="80c2f2eff5ebaeeff4e8ede1eee5b7c0e7ede1e9ecaee3efed">[email&#160;protected]</span></a>
+    </div>
+    
+    <div class="contact-item">
+      <span>📍 Adresse :</span><br>
+      <span style="color: var(--text-dark);">Rabat, Maroc</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 <strong>RabatCare</strong> – Tous droits réservés</p>
+  <p style="margin-top:15px;">
+    <a href="#emergency">Urgences</a> | 
+    <a href="#services">Services</a> | 
+    <a href="#why-us">Pourquoi nous</a> | 
+    <a href="#testimonials">Témoignages</a> | 
+    <a href="#contact">Contact</a>
+  </p>
+  <p style="margin-top:15px; font-size:0.9em; opacity:0.8;">
+    Ambulance SMUR | Soins infirmiers | Kinésithérapie à domicile | Rabat, Salé, Témara
+  </p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Bouton retour en haut
+  const backToTop = document.getElementById('back-to-top');
+  
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      backToTop.style.display = 'flex';
+    } else {
+      backToTop.style.display = 'none';
+    }
+  });
+  
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Gestion du formulaire de contact
+  const contactForm = document.getElementById('contactForm');
+  const successMessage = document.getElementById('successMessage');
+  
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Récupérer les données du formulaire
+    const formData = {
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      service: document.getElementById('service').value,
+      message: document.getElementById('message').value
+    };
+    
+    console.log('Données du formulaire:', formData);
+    
+    // Afficher le message de succès
+    successMessage.classList.add('show');
+    
+    // Réinitialiser le formulaire
+    contactForm.reset();
+    
+    // Masquer le message après 5 secondes
+    setTimeout(() => {
+      successMessage.classList.remove('show');
+    }, 5000);
+    
+    // Option: Rediriger vers WhatsApp avec les informations
+    const serviceName = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+    const whatsappMessage = `Bonjour, je suis ${formData.name}.%0AJe souhaite un rendez-vous pour: ${serviceName}%0A${formData.message ? 'Message: ' + formData.message : ''}%0AMon numéro: ${formData.phone}`;
+    // window.open
